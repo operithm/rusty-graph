@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: #0a0e17;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Courier New', monospace;
+        }
+        .cover {
+            width: 600px;
+            height: 800px;
+            background: linear-gradient(135deg, #0a0e17 0%, #1a2a3a 100%);
+            border: 2px solid #3a4a6b;
+            color: #e6f1ff;
+            text-align: center;
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 150, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 100px;
+            color: #64ffda;
+        }
+        .subtitle {
+            font-size: 20px;
+            margin: 20px 0 60px;
+            color: #e6f1ff;
+        }
+        .author {
+            font-size: 18px;
+            margin-top: 100px;
+        }
+        .rust-logo {
+            font-size: 24px;
+            color: #ff7e66;
+            margin-top: 20px;
+        }
+        .graph {
+            margin: 40px auto;
+            width: 300px;
+            height: 200px;
+            position: relative;
+        }
+        .node {
+            width: 30px;
+            height: 30px;
+            background: #64ffda;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #0a0e17;
+            font-weight: bold;
+        }
+        .edge {
+            height: 2px;
+            background: #3a4a6b;
+            position: absolute;
+            transform-origin: left;
+        }
+    </style>
+</head>
+<body>
+<div class="cover">
+    <div class="graph">
+        <!-- Graph Nodes -->
+        <div class="node" style="top: 50px; left: 100px;">A</div>
+        <div class="node" style="top: 50px; left: 250px;">B</div>
+        <div class="node" style="top: 150px; left: 100px;">C</div>
+        <div class="node" style="top: 150px; left: 250px;">D</div>
+        <!-- Edges -->
+        <div class="edge" style="width: 150px; top: 65px; left: 130px; transform: rotate(0deg);"></div>
+        <div class="edge" style="width: 100px; top: 100px; left: 115px; transform: rotate(90deg);"></div>
+        <div class="edge" style="width: 150px; top: 165px; left: 130px; transform: rotate(0deg);"></div>
+        <div class="edge" style="width: 100px; top: 100px; left: 265px; transform: rotate(90deg);"></div>
+    </div>
+    <div class="title">PRACTICAL GRAPH ALGORITHMS</div>
+    <div class="subtitle">Problems, Solutions, and Implementation in Rust</div>
+    <div class="author">by Oliver Chen</div>
+    <div class="rust-logo">RUST</div>
+</div>
+</body>
+</html>
