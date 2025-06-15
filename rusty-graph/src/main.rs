@@ -1,6 +1,6 @@
 #[path = "ch02-representations/mod.rs"]
 mod ch02_representations;
-#[path = "leetcode-problems/mod.rs"]
+#[path = "problems/mod.rs"]
 mod leetcode_problems;
 
 fn main() {

@@ -1,4 +1,4 @@
-struct Solution {}
+use solution::Solution;
 impl Solution {
     pub fn solve(board: &mut Vec<Vec<char>>) {
         if board.is_empty() || board[0].is_empty() {

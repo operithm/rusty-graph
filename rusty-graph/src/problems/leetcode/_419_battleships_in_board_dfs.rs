@@ -1,5 +1,3 @@
-struct Solution {}
-
 impl Solution {
     pub fn count_battleships(board: Vec<Vec<char>>) -> i32 {
         let mut board = board;

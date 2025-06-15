@@ -1,4 +1,5 @@
-struct Solution {}
+use solution::Solution;
+
 impl Solution {
     pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {
         if grid.is_empty() { return 0; }
