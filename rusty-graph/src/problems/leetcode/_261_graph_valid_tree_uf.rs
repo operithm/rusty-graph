@@ -1,17 +1,15 @@
-struct Solution {}
-
+use solution::Solution;
 struct UnionFind {
     parent: Vec<usize>,
     rank: Vec<usize>,
-    count: usize,
 }
 
+struct Solution {}
 impl UnionFind {
     fn new(size: usize) -> Self {
         Self {
             parent: (0..size).collect(),
             rank: vec![0; size],
-            count: size,
         }
     }
 
@@ -22,12 +20,12 @@ impl UnionFind {
         self.parent[x]
     }
 
-    fn union(&mut self, x: usize, y: usize) {
+    fn union(&mut self, x: usize, y: usize) -> bool {
         let x_root = self.find(x);
         let y_root = self.find(y);
 
         if x_root == y_root {
-            return;
+            return false; // Cycle detected
         }
 
         if self.rank[x_root] < self.rank[y_root] {
@@ -38,22 +36,25 @@ impl UnionFind {
                 self.rank[x_root] += 1;
             }
         }
-
-        self.count -= 1;
+        true
     }
 }
 
 impl Solution {
-    pub fn count_components(n: i32, edges: Vec<Vec<i32>>) -> i32 {
+    pub fn valid_tree(n: i32, edges: Vec<Vec<i32>>) -> bool {
         let n = n as usize;
-        let mut uf = UnionFind::new(n);
+        if edges.len() != n - 1 {
+            return false; // Must have exactly n-1 edges for a tree
+        }
 
+        let mut uf = UnionFind::new(n);
         for edge in edges {
             let x = edge[0] as usize;
             let y = edge[1] as usize;
-            uf.union(x, y);
+            if !uf.union(x, y) {
+                return false; // Cycle detected
+            }
         }
-
-        uf.count as i32
+        true
     }
 }

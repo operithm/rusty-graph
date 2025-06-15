@@ -1,4 +1,4 @@
-struct Solution {}
+use solution::Solution;
 
 struct UnionFind {
     parent: Vec<usize>,
@@ -38,21 +38,20 @@ impl UnionFind {
                 self.rank[x_root] += 1;
             }
         }
+
         self.count -= 1;
     }
 }
 
 impl Solution {
-    pub fn find_circle_num(is_connected: Vec<Vec<i32>>) -> i32 {
-        let n = is_connected.len();
+    pub fn count_components(n: i32, edges: Vec<Vec<i32>>) -> i32 {
+        let n = n as usize;
         let mut uf = UnionFind::new(n);
 
-        for i in 0..n {
-            for j in 0..n {
-                if is_connected[i][j] == 1 {
-                    uf.union(i, j);
-                }
-            }
+        for edge in edges {
+            let x = edge[0] as usize;
+            let y = edge[1] as usize;
+            uf.union(x, y);
         }
 
         uf.count as i32

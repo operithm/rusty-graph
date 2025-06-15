@@ -1,4 +1,5 @@
-struct Solution {}
+use solution::Solution;
+
 impl Solution {
     pub fn walls_and_gates(rooms: &mut Vec<Vec<i32>>) {
         if rooms.is_empty() || rooms[0].is_empty() {
